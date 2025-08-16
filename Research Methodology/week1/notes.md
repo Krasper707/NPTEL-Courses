@@ -38,4 +38,9 @@
 - Strategic Learning: Learning a particular subject upto the level you need it ; Not going too deep
 - In-depth learning: Go very deep to the bottom of the pit.
 
+  ---
+
+
+  - Research is  mostly about intuition ; while learning is done by the acquisition of the already existing knowledge ; Coursework is mostly about logic.
+  - Science seeks unity in wild variety around us. ; Produced by intuitive insight.
  
