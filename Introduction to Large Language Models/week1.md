@@ -37,7 +37,7 @@ style B fill:#ff4d4d,stroke:#000,stroke-width:1px
   - Fun fact: Model size have increased by an order of 5000x over last 4 years (till 2021)
 
 
-- GenAI involves use of deep Neural Netowrks to create new content, such as text,images, or various forms of media.
+- GenAI involves use of deep Neural Networks to create new content, such as text,images, or various forms of media.
 - In 2017, The research paper of Transformers (2017; Attention is all you need) and BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding(2018)
   - BERT achieved SOTA(State-Of-The-Art) on 11 NLP tasks
   - Thought that BERT was too big for back then so they made smaller models like DistilBERT,TinyBERT,MobileBERT.
@@ -71,3 +71,112 @@ style B fill:#ff4d4d,stroke:#000,stroke-width:1px
 
   
 `Note to self: Experiment with models on HuggingFace,Kaggle,Google Colab ; Read the research papers, atleast overview`
+
+
+---
+
+Lec2: Intro to NLP
+
+
+What is a Natural Language?  
+
+- Any language that has evolved naturally in humans through use and repetition without conscious planning or pre-meditation.
+
+
+What's NLP?
+
+- Natural Language Practic-  just kidding, I just took MLP course in my coursework and it was good yet a bit theory-heavy 0_0 ; its leaking from there to here.
+- NLP is a field of computer science ,AI and Computational linguistics concerned with the interactions between computers and human languages.
+  - Roots started with Turing ; Did first NLP experiment. Proposed the Turing Test
+  -  Noam Chomsky's Syntatic Structures revolutionized Linguistics with 'universal grammar'
+ 
+
+- NLP is challenging as it has a lot of ambiguity.
+- Pragmatics - [Link](https://en.wikipedia.org/wiki/Pragmatics)
+- Non Standard English - Ex: SLAYYY(kill / You rocked it) , neversaynever
+- Segmentation issues; Lets eat grandma vs Lets eat, grandma.
+- Idioms/Multiwords
+- Neologisms: Unfriend, retweet,bromance
+- World Knowledge; in one context; 2 people may be sisters or mothers.
+
+
+## Components of NLP
+- Natural Language Understanding
+- Natural Language Generation
+
+
+
+### NLP Layers:
+
+- Understanding semantics is a non-trivial task ; need a series of incremental steps to achieve this. ; Happens in layers
+
+```mermaid
+graph BT
+A["Pragmatics and Discourse"] --> B["Semantics"]
+B --> C["Parsing"]
+C --> D["Chunking"]
+D --> E["Part of speech tagging"]
+E --> F["Morphology"]
+
+
+```
+
+
+### Word and Token
+- **Word** : Smallest sequence of phenomes of a spoken language that can be uttered in isolation
+- **Word segmentation /Tokenization** : Breaking a string of characters into a sequence of words.
+- **Token** : Smallest sequence of graphemes that are delimited with some predefined characters (space,comma,fullstop,etc).
+- Urls cannot be split into multiple tokens
+
+### Morphology- Study of words
+- Field of linguistics that studies the internal structure of words
+- Defines word formation rule from the root word.
+- Morpheme is the smallest linguistic unit that has semantic meaning,
+- English,Chinese,etc are morphologically-poor languages.
+- Hindi,Turkish,Hungarian are termed as morphologically-rich languages.
+
+### Chunking 
+- Identification of non-recursive phases(noun,verb,etc)
+- Syntax Processing : Validate the grammar structure of sentence; the sequence of words must follow the grammatical structure of language to form a valid sentence.
+
+
+### Semantics
+
+- Concerned with meaning of words and how to combine words to make meaningful sentences and phrases.
+
+- 3 Types:
+  1. Decompositional: What the components of meanings in a word are ; Dived menaings of words into components
+  2. Ontological: How the meaning of word relates to meanings of other words 
+  3. Distributional: What contexts the word is found in, relative to other words. ; Meaning of words can be derived from distributional properties in large corpora of text.
+
+
+ - Discourse:
+   - Processing of sequence of sentences.
+  
+### Semantic Role Labelling(SRL):
+- Identify the semantic role of each argument (noun phrase) w.r.t the predicate of the sentence.
+
+### Textual Entailment
+
+- Determing whether one natural language sentence entails (implies) another under an ordinary interpretation.
+
+### Co-reference Resolution
+- Two referring expressions used to refer to the same entity are said to co-refer
+
+
+### Information Extraction
+- Named Entity Recognition(NER): Identify name
+- Relation Extraction: Relation among entities
+
+### Sentiment Analysis
+- Extract polarity orientation of the subjectivity
+
+## Machine Translation
+- Given a sentence in source language L1, convert it to target language L2, such that the semantic(adequacy and fluency) is preserved.
+
+## Summarization
+- Given a document, summarize the semantics(Extract relevant info) in shorter length text
+- Extractive summarization - Identify imp sentences and just copy and paste em.
+- Abstractive summarizaiton- Understand the imp semantics and rewrite them
+- Aspect based summarization - Given an aspect, summarize doc with that aspect.
+
