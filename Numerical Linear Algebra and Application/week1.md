@@ -51,3 +51,42 @@ Infinity Norm:
 
 ---
 
+
+Lec2:
+
+- Recursive computations are those that are performed recursively so that the computations of one step depends upon the results of previous steps
+- The errors in the computations are measured either by absolute error or relative error
+- Relative error makes more sense than absolute error ; Gives indication of number of significant digits in approx answer
+
+
+### Whats an algorithm?
+- It is an ordered set of operations, logical and arithmetic , which when applied to a computational points defined by a set of data, called the  input data, produces a solution to the problem
+
+### Backward error:
+- $|y-x|$ -> Relates the rrors to the data of the problem rather than the problem's solution.
+
+### Forward error
+-> $|f(x) - \hat{f}(x)|$
+
+
+
+### Backward and Forward stability
+- An algorithm is called backward stable if for any x , it produces a value $\hat{f}(x)$ with a small backward error, i.e. $\hat{f}(x) = f(y)$ for some y close to x.
+- An algorithm is called stable if it is backward stable.
+
+### Condition number
+- The condition number of the problem f with respect ot the data x is defined as
+- $\frac {Relative error in solutions} {Relative perturbation in the data}$
+
+
+### Condition number of a function(one-varible)
+- If f(x) is a  differentiable function of one variable, then it is easy to see that for small perturbations, the condition number of f(x), denoted by c(x)  is
+  - $c(x) = \frac{ |x| |f'(x)|} {|f(x)|}$
+ 
+
+### Condition number of the matrix
+
+Suppose $A \in R$,x is an n-vector, say condition number $kappa$ of $A_x$ is given by
+$kappa = ||A|| \frac{||x||} {||Ax||}$
+
+If A is square and non-singular, Then $\kappa \le ||A|| ||A^{-1}||$
