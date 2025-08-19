@@ -44,3 +44,17 @@ Major Publishers:
 - APS,AIP,ACS,AIChE,TMS,ASM,ACM,IEEE,etc
 
 ---
+
+- Jabref is a useful reference manager software  ; Native format is BibTEX
+- All publications cited in the document are to be listed at the end of the document.
+
+Referencing using BibTEX in LaTEX:
+- keep the `*.bib` file contatining your reference data in same folder as your `*.tex` file, Ensure that the bibtexkey field is unique for all entries
+- Use the command `\bibliography{}` to point to the reference data
+- Use `\bibliographystyle{}` to choose style of referencing
+- Cite a reference using `\cite{bibtexkey`
+
+
+#### For citing with Microsoft word
+- Use Jabref to convert the bibtex file to a xml file, import that xml in the word under references, then insert citation.
+
