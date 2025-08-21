@@ -90,3 +90,24 @@ Suppose $A \in R$,x is an n-vector, say condition number $kappa$ of $A_x$ is giv
 $kappa = ||A|| \frac{||x||} {||Ax||}$
 
 If A is square and non-singular, Then $\kappa \le ||A|| ||A^{-1}||$
+
+---
+
+Lec 3
+
+- The conditioning number is data dependent ; condition of problem is property of problem itself and  has ntg to do with the algo used to solve problem.
+- Thus, a problem which is ill-conditioned for one set of data could be well-conditioned for another set.
+- Accuracy of the computed solution by a given algorithm is directly connected with both the stability of the problem and accuracy of the problem.
+- For ill-conditioned problem, no matter how stable the algorithm is, the accuracy may not be guaranteed, accuracy depends upon the condition number.
+
+Theorem: 
+If $\delta b and \delta x$ are respectively, the perturbation of b and x in the linear system Ax=b. A is non-singular, and b $ne$ 0 , Then.
+
+$\frac {||\delta b ||} {||A|| ||A^{-1}|| }  \le \frac {||\delta x||} {||x||} \le ||A|| ||A^{-1}|| \frac {||\delta b || } {||b||}$
+
+Proof: Since Ax=b and $A(x + \delta x) = b + \delta b$
+ => $A \delta x = \delta b$
+ i.e. $\delta x = A^{-1} \delta b$ (since A is non-singular)
+
+
+ 
