@@ -139,3 +139,134 @@ Linear Interpolation:
 - $\hat{P}(w_n | w_{n-2} w_{n-1}) = \lambda_1 P(w_{n} | w_{n-2} w_{n-1}) + \lambda_2 P(w_n| w_{n-1}) + \lambda_3 P(w_n)$
   - $\sum_i \lambda_i =1$
 
+
+---
+
+
+
+# Lec 4
+
+### Advanced smoothing Algorithms:
+- Naive smoothing algos have limited usage and are not very effective. Not frequently ued for N-grams.
+
+- Can be used for domains where the number of zeros isnt huge.
+
+### Popular Algorithms:
+- Good-Turing
+- Kneser-Ney
+
+- Intuition in above: Use of count of things we have seen once to help estimate count of things we have never seen
+
+
+
+#### Notation
+
+$N_c$ = Frequency of frequency of c
+
+
+### Good Turing Smoothing Intuition
+- Crucial underlying assumption: **The sample is representative**
+  - Other asssumptions:
+    - The Distribution is Non-Uniform (Mostly Zipfian)
+    - The Sample is Sufficiently Large
+    - The "Species" are Well-Defined and Constant
+    - All Unseen Events are Equally Likely (Or Have a Known Prior)
+    - The Process is Stationary :assumes that the underlying probability distribution does not change between the training sample and the future data you want to make predictions on.
+
+
+
+ 
+**Calculations**
+- $P^{*}_{GT} (things with zero frequency) = \frac {N_1} {N}$
+- Unseen:
+  - C=0
+  - MLE p = 0/20 = 0
+  -  $P^{*}_{GT} (unseen) = \frac {N_1} {N} =3/18$
+ 
+$c* = \frac {(c+1) N_{c+1}} {N_c}$
+
+- Seen once
+  - C =1
+  - MLE p=1/20
+  - $c* = 2 \frac{N_2}{N_1} = 2/3$
+  - $P^{*}_{GT} (unseen) = \frac {2/3} {18} =1/27$
+
+
+### Absolute Discounting Interpolation
+  - Adjusts the probability estimates for n-grams by discounting each count by a fixed amount( usually a small constant) before computing probabilities.
+  - $P_{Absolute_discounting} (w_i | w_{i-1}) = \frac {c(w_{i-1} , w_i) - d } {c(w_{i-1})} + \lambda (w_{i-1})P(w_i)$
+ 
+  - $P(w_i)$ = unigram probability
+  - However, considering regular unigram probability has some limitations too.
+
+### Continuation Probability
+- Continuation probability of a unigram : Suppose we have a huge corpus, which has one word repeating many times; say Biryani (Chicken Biryani, Mutton Biryani, Prawn Biryani(dk if it exists, dont ask also) , Fish Biryani,etc). Now `Biryani` would have a high unigram count.
+- In continuation probability, we will compute the number of unique BIGRAMS that these particular unigrams complete.
+
+- Regular unigram probability P(w): "How likely is w?"
+- $P_{continuation}(w)$ : "How likely is w to appear as  a novel continuation?"
+
+- Computation
+  - $P_{continuation} (w)= \frac { |(w_{i-1} : c(w_{i-1},w)>0| )} {|(w_{j-1},w_j) : c(w_{j-1},w_j) >0|}$
+
+Denominator is all unique bigrams ; numerator is count of all bigrams that are completed by this unigram
+
+### Kneser-Ney Smoothing
+
+$P_{KN}(w_i | w_{i-1}) = \frac { max(c(w_{i-1},w_i)-d,0)} {c(w_{i-1})} + \lambda(w_{i-1}) P_{continuation} (w_i)$
+
+- Where $\lambda$ is a normalizing constant
+$\lambda_{i-1} = \frac {d} {c(w_{i-1})}$ : | ${w:c(w_{i-1},w) > d}$ |
+
+
+
+## Evaluation of Language Models:
+
+2 Types:
+1) Extrinsic / Task Based Evaluation ;  Metric - BLEU
+2) Intrinsic
+
+
+### Extrinsic Evaluation:
+
+- Problems:
+  - If quality of Machine Translation model is not good, then accurate scores will not be achieved
+  - Not very clear Which task is to be choosed. (Machine translation or speech recognition or other metrics)
+  -  They are timeconsuming.
+ 
+
+### Intrinsic Evaluation: Perplexity
+
+**Intuition: The Shannon Game**
+
+Observation: The more context we consider, better the prediction
+The best language model is one that best predicts an unseen dataset
+#### Perplexity:
+The inverse probability of the test data, normalized by number of words.
+
+- Given a sentence W consisting of n words, the perplexity is calculated as follows:
+- $PP(W)= P(w_1,w_2,...w_n)^{ - \frac {1}{n}}$
+- Applying chain rule:
+  - $PP(W) = ( \prod( \frac {1}{P(w_i | w_1,w_2,...,w_{i-1})} ))^{1/n}$
+ 
+- Minimizing perplexity is same as maximizing probability.
+
+
+Entropy rate/Per-word entropy :  $\frac{1}{n} H(X)$
+
+$H(X) = - \sum_m p(x_i) log p(x_i)$
+
+
+=> Entropy rate = $- \frac{1}{n} \sum p () log p()$
+                = $- \lim_{n -> \infty}  \frac{1}{n} \sum  p() log p()$
+
+Shannon-Macmillan-Breinman Theorem:
+If stochastic process is regular; stationary and regular ;   $- \lim_{n -> \infty} p() log p()$ =>$- \lim_{n -> \infty}  \frac{1}{n}  log p()$   
+
+
+Cross Entropy
+
+$H(L,M) = - \sum P_L(x_i) log P_m (x_i)$
+
+$H(L) \le H(L,M)$
+
