@@ -135,6 +135,14 @@ E --> F["Morphology"]
 - English,Chinese,etc are morphologically-poor languages.
 - Hindi,Turkish,Hungarian are termed as morphologically-rich languages.
 
+
+### The various -nyms
+- Hypernyms : It is a word that represents a broader, more general category that includes other, more specific words called hyponyms
+- Meronyms : Specifies a part of something but refers to the whole of that thing.
+- Holonym : It is a word that describes a whole thing which also has smaller parts with different names. "Dog" is a holonym of "fur" and "wagging tail.". (Holonym of one is meronym of the other; "car" and "wheel" - Holonym ; "wheel"  is meronym of "car")
+- Hyponyms:  Hyponyms are words that represent specific instances or subtypes of a more general category (ex: Dog-animal)
+
+
 ### Chunking 
 - Identification of non-recursive phases(noun,verb,etc)
 - Syntax Processing : Validate the grammar structure of sentence; the sequence of words must follow the grammatical structure of language to form a valid sentence.
@@ -180,3 +188,9 @@ E --> F["Morphology"]
 - Abstractive summarizaiton- Understand the imp semantics and rewrite them
 - Aspect based summarization - Given an aspect, summarize doc with that aspect.
 
+
+
+---
+
+## Upon revisting
+- Did not know what hypernyms, meronyms, holonym and hyponyms meant. An appropriate section has been added above for them.
