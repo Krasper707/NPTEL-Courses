@@ -110,4 +110,14 @@ Proof: Since Ax=b and $A(x + \delta x) = b + \delta b$
  i.e. $\delta x = A^{-1} \delta b$ (since A is non-singular)
 
 
- 
+- If condition number is too large, then even a small perturbation in b might change the solution drastically
+- The system Ax=b is ill-conditioned if the cond(A) is too large ; else well conditioned.
+
+
+
+ LU Factorization:
+
+
+ - A matrix has a decomposition of the form A=LU if $A_k$ ; k =1,2,..,n are non Singular
+ - If LU Factorization exists and A is non-singular, then the factorization is unique
+- Pivots must not be zero. 
