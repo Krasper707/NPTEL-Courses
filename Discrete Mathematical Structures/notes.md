@@ -148,3 +148,10 @@ DeMorgan Laws
 ---
 
 
+- $$(P => Q) \Leftrightarrow( \neg P \vee Q)$$ : Implication
+- $$(P <=> Q) \Leftrightarrow ( (P => Q) \wedge (Q => P) )$$ ; Equivalence
+- $$((P \wedge Q)  => R)\Leftrightarrow ( P => (Q=>R))$$ ; Exportation
+- $$( (P => Q)\wedge (P => \neg Q) )\Leftrightarrow \neg P$$ ; Absurdity
+- $$(P => Q) \Leftrightarrow ( \neg Q => \neg P)$$ ; Contrapositive
+
+
