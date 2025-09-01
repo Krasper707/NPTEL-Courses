@@ -45,3 +45,103 @@ Derivative of sigmoid = $$\sigma (1- \sigma)$$
 -  Swish GLU: $$x (dot) Swish(wx+b)$$
 
 ---
+
+
+Lec 6:
+PyTorch
+
+- OpenSource framework to build and train DL models.
+
+### Tensors
+ - Tensors are a multidimensional array used to store data in ML and DL frameworks..
+
+```python
+tenso0=torch.tensor(1)
+tensor0
+
+## tensor with one dimension
+tensor1=torch.tensor([2,5,34,7,55])
+tensor1.shape => torch.Size([5])
+## tensor with two dimensions
+
+tensor2=torch.tensor([ [0,1,7],[2,5,67]])
+tensor2.size() = > torch.Size([2,3])
+```
+
+ - Can find out the number of dimension in a tensor using `.ndim` function
+ - Number of `[` gives the dimension of tensor.
+
+### Creating random tensors
+
+```python
+size=(3,4)
+t4=torch.empty(size)
+
+
+t5=torch.rand(size)
+
+t6=torch.zeros(size)
+
+t7=torch.ones(size)
+
+```
+
+
+- Default dtype for tensors with float values is `float32`
+```python
+##Initializing with particular dtype
+
+t5=torch.rand(size,dtpye=torch.float16)
+
+
+t4.type(torch.int32)
+
+
+# Creating tensors from numpy arrays
+
+n1=np.array([[9,4],[5,6]])
+t8=torch.from_numpy(n1)
+t9=torch.tensor(n1)
+
+# Both the above methods work
+
+
+# Creating a tensor from another tensor
+
+t10= torch.ones_like(t8)
+
+## Device agnostic code is an imp thing here.
+
+device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+t11=torch.ones(3,7).to(device)
+t11=torch.zeros(3,7,device=device)
+
+#Elementwise addition
+
+t14=t8+t9
+# or t14= torch.add(t8+t9)
+
+#Elementwise subtraction
+t15= t8-t9
+# or t15 = torch.sub(t8,t9)
+
+#Elementwise multiplication
+
+t16=t8*t9
+#torch.mul(t8,t9)
+
+
+#Elementwise division
+
+t17=t8/t9
+#torch.div(t8,t9)
+
+x= torch.randint(0,3,(4,5))
+
+randint(start,end,size)
+
+
+```
+
+- `.view` method shares the common tensors, that is if the values in parent tensor are changed, so is it in the child variable.
+- 
