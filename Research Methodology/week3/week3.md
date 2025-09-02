@@ -47,3 +47,6 @@ Almost all data analysis procedures are iterative ; not necessarily sequential.
 Anscombe's quartet is a group of datasets (x, y) that have the same mean, standard deviation, and regression line, but which are qualitatively different
 
 ---
+
+
+- A model emulates the process given  the operating conditions,parameters and physical properties.
