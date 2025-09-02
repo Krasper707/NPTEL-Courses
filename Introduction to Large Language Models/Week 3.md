@@ -144,4 +144,25 @@ randint(start,end,size)
 ```
 
 - `.view` method shares the common tensors, that is if the values in parent tensor are changed, so is it in the child variable.
-- 
+
+
+### Tensor Reduction Operations
+- mean
+- argmax
+- sum
+
+
+### Autograd
+- Its a differentiation engine that powers neural network training.
+
+```python
+x=torch.tensor(2.0)
+x.required_grad,x.is_leaf => False,True
+
+# leaf tensors => If required_grad is False, is_leaf will be true i.e. they will be leaf tensors ; When user explicitly sets required_grad as True, the is_leaf will still be true ; but if pytorch implicitly defines it, it will not be a leaf tensor
+
+y=3*torch.sigmoid(x)+5
+y.backward() = > Does differentiation
+# But gradient gets accumulated, so to prevent that, set `x.grad.zero()`
+ 
+```
