@@ -65,3 +65,74 @@ For this , we could use SVD
 - Hard to incorporate new words or documents
 - Does not consider order of words.
 
+
+### Word Embedding
+- Dense Vector
+- Helps in learning less parameters
+- May generalize better
+- Can capture synonyms better
+
+
+## Represent the meaning of word: word2vec
+
+(Prediction based approaches)
+
+Two basic neural network models:
+- Continuous bag of word(CBOW): Use a window of word to predict the middle word
+- Skip-Gram(SG) : Use a word to prdict the surrounding words in the window
+
+## Word2Vec
+- Instead of counting how often each word w occurs near "apricot"
+ - Train a classifier on a binary prediction task: Is w likely to show up near "apricot"
+
+- Dont care abt task but will take the learned classifier weights as word embeddings.
+
+
+## BIG IDEA:
+- Self supervision:
+ - A word c that occurs near apricot in the corpus acts as the gold "correct answer" for supervised learning
+ - No need for human labels.
+
+
+## Skip-Gram classifier (assuming a +- 2 word window)
+
+Goal: Train a classifier, that, given a candidate(word,context) pair assigns each pair a probability
+
+P(+ | w,c)
+
+P(- | w,c) = 1- P(+ |w,c)
+
+
+- Similarity is computed using dot product
+ - Two vectors are similar if they have a high dot product.
+ - Cosine is just a normalized dot product
+
+
+- Similartity(w,c) $$propto$$ w * c
+
+
+ ## Skip Gram Training Data
+ - For each positive example, we will grab k negative examples, sampling by frequency
+
+### Choosing negative examples
+- $P_{\alpha} (w) = \frac { count(w)^{\alpha}}{ \sum_w' count(w')^{\alpha}}$
+
+
+Setting $\alpha = 0.75$ gives better performance because it gives rare noise words slightly higher probability: for rare words : $P_{alpha} (w) > P(w)$
+
+## Loss function for one w with $c_{pos} , c_{neg1} ... c_{negk}$
+
+
+$$L_{CE} \;=\; - \log \left[\, P(+ \mid w, c_{pos}) \cdot \prod_{i=1}^k P(- \mid w, c_{neg_i}) \,\right].$$
+
+
+
+Two sets of embeddings
+
+- Skip-gram learns two sets of embeddings
+ - Target embeddings matrix W
+ - Context embedding matrix C
+
+
+---
+
