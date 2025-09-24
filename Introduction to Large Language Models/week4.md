@@ -136,3 +136,57 @@ Two sets of embeddings
 
 ---
 
+
+
+Pros and cons of Count-based and Prediction-based methods
+
+Count-Based Methods:
+**Pros**
+- Fast training
+- Efficient usage of statistics
+
+**Cons**
+- Primarily used to capture word similarity
+- Disproportionate importance given to large counts
+
+
+Prediction-based methods
+**Pros**
+- Generate improved performance on other tasks
+- Can capture complex patterns beyond word similarity
+
+
+**Cons**
+- Scales with corpus size
+- Inefficient usage of statistics
+
+
+GloVe - Global Vectors
+
+Crucial insight: Ratios of co-occurence probabilities can encode word meaning
+
+Learn word vectors based on these counts
+
+For the two words, i and j, assume their corresponding representation vectors are $w_i$ and $w_j$ respectively.
+
+$w_i^t w_j$ = $log P(j | i) = log X_{ij} - log X_i$
+
+
+$w_i^t w_j = log(X_{ij})  - \frac{log(X_i) }{2} - \frac{log(X_j) }{2}$
+
+$log(X_{ij}) = w_i^t w_j  + \frac{log(X_i) }{2} + \frac{log(X_j) }{2}$
+
+Prob: gives equal weightage to all co-occurences
+
+Need to add a weighing function f(x)
+
+f(x) =  $(\frac{x}{x_{max}})^ \alpha    if x<x_{max} ; 1 otherwise$
+
+alpha is hyperparameter
+
+
+
+### Advantages
+- Fast training
+- Scalable to huge corpora
+- Good performance even with small corpus and small vectors
