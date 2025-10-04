@@ -50,3 +50,7 @@ Anscombe's quartet is a group of datasets (x, y) that have the same mean, standa
 
 
 - A model emulates the process given  the operating conditions,parameters and physical properties.
+- Two broad approaches to modelling: Emperical(data-driven) and First-Principles(Fundamentals) ; Together, they constitute a model
+- First principles are usually rigorous math,they are rigid,can be quite challenging and time-consuming to develop.
+- Emperical: Models are usually black-box,model structures are extremely flexible,relatively much easier and less time-consuming to develop.
+- Two broad classes of models: Time-series models and Causal models
